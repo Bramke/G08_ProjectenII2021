@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="~/assets/img/logo_klein-removebg.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="~/assets/css/Animation-Cards-1.css">
+    <link rel="stylesheet" href="~/assets/css/Animation-Cards.css">
+    <link rel="stylesheet" href="~/assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="~/assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="~/assets/css/Footer-Clean.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="~/assets/css/List-item.css">
+    <link rel="stylesheet" href="~/assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="~/assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="~/assets/css/styles.css">
+    @RenderSection("AdditionalCss", required: false)
+    <title>@ViewBag.Title</title>
+
+    @*<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] Actemium</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/site.css"/>
+</head>
+<body>
+    
+
+    <header>
+
+        <partial name="_LoginPartial" />
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-success">@TempData["message"]</div>
+        }
+        @if (TempData["error"] != null)
+        {
+            <div class="alert alert-warning">@TempData["error"]</div>
+        }
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="footer">
+            <div class="form-group">
+                <a class="btn btn-link" href="https://www.facebook.com/actemiumbelgium/" target="_blank" rel="noopener" title="Facebook">
+                    <img src="~/img/facebook2.png" height="30" width="30" />
+                </a>
+                <a class="btn btn-link" href="https://www.linkedin.com/company/actemium/" target="_blank" rel="noopener" title="LinkedIn">
+                    <img src="~/img/linkedin-icon-blue.png" height="30" width="30" />
+                </a>
+                <a class="btn btn-link" href="https://twitter.com/ActemiumBE" target="_blank" rel="noopener" title="Twitter">
+                    <img src="~/img/twitter.png" height="30" width="30" />
+                </a>
+                <a class="btn btn-link" href="https://www.youtube.com/channel/UCzsfiIGIa_rqQdX-Jfq_1UQ" target="_blank" rel="noopener" title="Youtube">
+                    <img src="~/img/Youtube.png" height="40" width="40" />
+                </a>
+            </div>
+            <div class="privacy">
+                &copy; 2021 - Actemium - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

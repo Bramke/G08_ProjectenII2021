@@ -1,0 +1,102 @@
+@model G08_Project2021.Models.ViewModels.ContractViewModel
+
+@{
+    ViewData["Title"] = "Detail";
+}
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="pull-left">Details</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="height: 10%;"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="pull-left">Contract</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" style="margin-top: 10px;margin-bottom: 10px;">
+            <div class="col-md-4 col-md-2">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="color: rgb(255,255,255);background: var(--blue);">Id</span></div><input class="form-control" type="text" readonly="" placeholder="@Html.DisplayFor(m => m.Id)">
+                    <div class="input-group-append"></div>
+                </div>
+            </div>
+            <div class="col-md-4 col-md-5">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="color: rgb(255,255,255);background: var(--blue);">Startdatum</span></div><input class="form-control" type="text" readonly="" placeholder="@Html.DisplayFor(m => m.StartDatum)">
+                    <div class="input-group-append"></div>
+                </div>
+            </div>
+            <div class="col-md-4 col-md-5">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="color: rgb(255,255,255);background: var(--blue);">Einddatum</span></div><input class="form-control" type="text" readonly="" placeholder="@Html.DisplayFor(m => m.EindDatum)">
+                    <div class="input-group-append"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="pull-left">Contracttype</h3>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="color: rgb(255,255,255);background: var(--blue);">Naam</span></div><input class="form-control" type="text" readonly="" placeholder="@Html.DisplayFor(m => m.ContractTypeNaam)">
+                    <div class="input-group-append"></div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="background: var(--blue);color: rgb(255,255,255);">Status</span></div><input class="form-control" type="text" readonly="" placeholder="@Html.DisplayFor(m => m.ContractTypeStatus)">
+                    <div class="input-group-append"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="background: var(--blue);color: rgb(255,255,255);">Aanmaakwijze</span></div><input class="form-control" type="text" readonly="" placeholder="@Html.DisplayFor(m => m.AanmaakWijze)">
+                    <div class="input-group-append"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="background: var(--blue);color: rgb(255,255,255);">Maximum afhandeltijd</span></div><input class="form-control" type="text" readonly="" placeholder="@Html.DisplayFor(m => m.MaxDagen) werkdagen">
+                    <div class="input-group-append"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="background: var(--blue);color: rgb(255,255,255);">Looptijd contract</span></div><input class="form-control" type="text" readonly="" placeholder="@Html.DisplayFor(m => m.MinLooptijdContract) jaar">
+                    <div class="input-group-append"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="background: var(--blue);color: rgb(255,255,255);">Prijs</span></div><input class="form-control" type="text" readonly="" placeholder="&euro; @Html.DisplayFor(m => m.Prijs)">
+                    <div class="input-group-append"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 30px">
+        <a asp-action="Index" class="btn btn-secondary">Terug</a>
+    </div>

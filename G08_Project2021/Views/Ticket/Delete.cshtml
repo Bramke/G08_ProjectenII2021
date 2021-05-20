@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Delete";
+}
+<link rel="stylesheet" href="~/css/site.css" />
+<section class="features-boxed" style="background: rgb(238, 244, 247);">
+    <div class="container"style="text-align:center;">
+        <h3>
+            Wenst u dit ticket te verwijderen?!
+        </h3>
+        <form asp-action="Delete" method="post">
+            <div>
+                <button class="btn btn-primary" type="submit">Verwijder</button>
+                <a asp-action="Index" class="btn btn-secondary">Annuleer</a>
+            </div>
+        </form>
+    </div>
+</section>
+

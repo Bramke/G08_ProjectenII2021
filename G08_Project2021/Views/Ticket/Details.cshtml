@@ -1,0 +1,101 @@
+﻿@model G08_Project2021.Models.ViewModels.TicketViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<link rel="stylesheet" href="~/css/site.css" />
+<body style="background: rgb(238,244,247);">
+    <section class="features-boxed" style="background: rgb(238, 244, 247);">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group col-md-8">
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="color: rgb(255,255,255);background: var(--blue);">
+                                <label asp-for="Titel"></label>
+                            </span>
+                            <textarea asp-for="Titel" class="form-control" readonly></textarea>
+
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12"></div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row" style="margin-top: 10px;margin-bottom: 10px;">
+
+                <div class="form-group col-md-10">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="color: rgb(255,255,255);background: var(--blue);">
+                            <label asp-for="Omschrijving"></label>
+                        </span>
+                        <textarea asp-for="Omschrijving" class="form-control" readonly></textarea>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="form-group col-md-6">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="color: rgb(255,255,255);background: var(--blue);">
+                            <label asp-for="Technieker"></label>
+                        </span>
+                        <textarea asp-for="Technieker" class="form-control" readonly></textarea>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="form-group col-md-6">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="color: rgb(255,255,255);background: var(--blue);">
+                            <label asp-for="Status"></label>
+                        </span>
+                        <textarea asp-for="Status" class="form-control" readonly></textarea>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="form-group col-md-6">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="color: rgb(255,255,255);background: var(--blue);">
+                            <label asp-for="Type"></label>
+                        </span>
+                        <textarea asp-for="Type" class="form-control" readonly></textarea>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="form-group col-md-10">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="color: rgb(255,255,255);background: var(--blue);">
+                            <label asp-for="AanmaakDatum"></label>
+                        </span>
+                        <textarea asp-for="AanmaakDatum" class="form-control" readonly></textarea>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+              <div class="container">
+                  <a class="btn btn-light action-button pull-right" role="button" asp-action="Index" style="background: #007bff;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;margin-left: 0;margin-top: 33px;margin-right: 2px;">Terug</a>
+              </div>
+    </section>
+</body>
+

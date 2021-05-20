@@ -1,0 +1,78 @@
+﻿@{ ViewData["Title"] = "Create"; }
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="pull-left">Contract aanmaken</h1>
+        </div>
+    </div>
+</div>
+@*<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group" style="margin-top: 10px;">
+                    <div class="input-group-prepend"><span class="input-group-text" style="background: var(--blue);color: rgb(255,255,255);">Contracttype kiezen</span></div><select class="form-control" style="background: rgb(233,236,239);padding-right: 25%;padding-top: 5px;padding-bottom: 5px;border-radius: 8px;border-top-left-radius: 0;border-top-right-radius: 8px;border-bottom-left-radius: 0;">
+                        <optgroup label="Kies een contracttype">
+                            @foreach (var contracttype in Model)
+                            {
+                <a asp-controller="Contract" asp-action="DetailContractType" asp-route-id="@contracttype.Id">
+                    <option value="@contracttype.Id" selected="">@contracttype.Naam</option>
+                </a>
+            }
+
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+*@
+<form method="post">
+    <div class="container">
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="background: var(--blue);color: rgb(255,255,255);">Naam</span></div><input class="form-control" type="text" id="Naam" name="Naam" readonly="" value="@ViewBag.Details[0]">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="background: var(--blue);color: rgb(255,255,255);">Prijs</span></div><input class="form-control" type="text" id="Prijs" name="Prijs" readonly="" value="€ @ViewBag.Details[5]">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="background: var(--blue);color: rgb(255,255,255);">Startdatum</span></div><input class="form-control" type="text" id="StartDatum" name="StartDatum" value="@ViewBag.Details[1]" readonly="" placeholder="@ViewBag.Details[1]">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="background: var(--blue);color: rgb(255,255,255);">Einddatum</span></div><input class="form-control" type="text" id="EindDatum" name="EindDatum" value="@ViewBag.Details[2]" readonly="" placeholder="@ViewBag.Details[2]">
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="background: var(--blue);color: rgb(255,255,255);">Maximale afhandeltijd</span></div><input class="form-control" type="text" id="MaxDagen" name="MaxDagen" readonly="" value="@ViewBag.Details[3] dagen">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="background: var(--blue);color: rgb(255,255,255);">Doorlooptijd</span></div><input class="form-control" type="text" id="MinLooptijdContract" name="MinLooptijdContract" readonly="" value="@ViewBag.Details[4] jaar">
+                </div>
+            </div>
+        </div>
+    </div>
+    <input class="form-control" type="text" id="Id" name="Id" readonly="" hidden=""  value="@ViewBag.Details[6]">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"><button class="btn btn-primary" type="submit" style="margin-top: 30px;">Contract aanmaken</button></div>
+            <div class="col-md-3"><a asp-action="KiesContractType" class="btn btn-secondary" type="button" style="margin-top: 30px;">Terug</a></div>
+        </div>
+    </div>
+</form>
+    

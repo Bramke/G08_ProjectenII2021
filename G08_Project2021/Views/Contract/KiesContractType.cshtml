@@ -1,0 +1,40 @@
+@using G08_Project2021.Models.Domein
+@model IEnumerable<ContractType>
+@{ ViewData["Title"] = "Create"; }
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Nieuw Contract</h1>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>Kies een contracttype voor uw nieuw contract</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+            @foreach (var item in Model)
+            {
+            @if (item.Status == ContractTypeStatus.ACTIEF)
+            {
+            <div class="col-md-3">
+                <a asp-controller="Contract" asp-action="Create" asp-route-id="@item.Id" role="button">
+                    <div class="card">
+                        <div class="card-body" style="background: linear-gradient(-103deg, rgb(81,137,198) 0%, rgb(57,82,173) 100%), var(--blue);border-radius: 5px;">
+                            <h4 class="card-title text-center" style="color: rgb(255,255,255);">@item.Naam</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                }
+            }
+    </div>
+</div>
+
+<div style="margin-top: 30px; margin-bottom: 50px">
+    <a asp-action="Index" class="btn btn-secondary">Annuleer</a>
+</div>

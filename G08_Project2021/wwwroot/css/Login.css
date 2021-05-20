@@ -1,0 +1,73 @@
+﻿body {
+    background-image: url("../img/loginachtergrond.png");
+    background-size: cover;
+    background-repeat:no-repeat;
+}
+
+.container {
+    margin-top: 30px;
+    background-color: white;
+    opacity: 90%;
+    padding-bottom: 5%;
+    border-radius: 20px;
+    padding-right: 0px;
+    max-width: 500px;
+    width: 90%;
+    padding-bottom: 0px;
+}
+.form-control {
+    width:90%;
+}
+    .pb-3 {
+    margin-top: 2%;
+}
+.image{
+    margin-left:15%;
+  width:200px;
+  height:200px;
+  
+    
+}
+label{
+    font-size:18px;
+}
+#welkom {
+    color: #6F6F6F;
+    padding-top: 2%;
+    text-align: center;
+}
+
+#logbutton {
+    background-color: #1b6ec2;
+    color: white;
+    border: 1px solid;
+    border-radius: 4px;
+    box-shadow: none;
+    /*padding: 2% 55% 2% 32%;*/
+    width:90%;
+
+}
+#registreer{
+    color:blue;
+}
+
+    #logbutton:hover {
+        opacity: 0.6;
+        color: #fff;
+    }
+
+.footer {
+    background-color: white;
+    opacity: 90%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+
+
+
+

@@ -1,0 +1,68 @@
+﻿@using G08_Project2021.Models.Domein
+@model IEnumerable<Contract>
+
+
+@{
+    ViewData["Title"] = "Contracten";
+}
+@section AdditionalCss{
+    <link rel="stylesheet" href="assets/css/Forum---Thread-listing-1.css">
+    <link rel="stylesheet" href="assets/css/Forum---Thread-listing.css">
+}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-center pull-left" style="margin-left: 54px;">Overzicht van uw contracten</h2>
+            <a class="btn btn-light action-button pull-right" asp-controller="Contract" asp-action="KiesContractType" role="button" style="background: #104b8f;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;margin-left: 0;font-size: 17px;margin-top: 33px;margin-right: 54px;">Contract aanmaken</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active" role="presentation"><a role="tab" data-toggle="tab" href="#tab-1" style:"margin-right: 2%">In behandeling & Lopend&nbsp;<span class="badge">@((int)ViewData["Actief"])</span></a></li>
+                    <li role="presentation"><a role="tab" data-toggle="tab" href="#tab-2" style="margin-left: 5px">Beëindigd&nbsp;<span class="badge">@((int)ViewData["Ended"])</span></a></li>
+
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" role="tabpanel" id="tab-1">
+                        <ul class="thread-list">
+                            <!-- LIJSTITEMS tab #1-->
+                            @foreach (var item in Model)
+                            {
+                                @if (item.ContractStatus == ContractStatus.IN_BEHANDELING || item.ContractStatus == ContractStatus.LOPEND)
+                                {
+                                    
+
+                                    <a asp-controller="Contract" asp-action="Detail" asp-route-id="@item.Id"><li class="thread" ><span class="time" style="width: 210px;">@item.Id | @item.StartDatum.ToString("dd/MM/yyyy") - @item.EindDatum.ToString("dd/MM/yyyy") </span><span>  @item.ContractTypeNaam </span> <span><img src="@item.EnumToImg()" /></span></li></a>
+                                }
+                            }
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="tab-2">
+                        <ul class="thread-list">
+                            <!-- LIJSTITEMS tab #2-->
+                            @foreach (var item in Model)
+                            {
+                                @if (item.ContractStatus == ContractStatus.BEËINDIGD)
+                                {
+                                    <a asp-controller="Contract" asp-action="Detail" asp-route-id="@item.Id"><li class="thread"><span class="time" style="width: 210px;">@item.Id | @item.StartDatum.ToString("dd/MM/yyyy") - @item.EindDatum.ToString("dd/MM/yyyy") </span><span>  @item.ContractTypeNaam </span> <span><img src="@item.EnumToImg()" /></span></li></a>
+                                }
+                            }
+                        </ul>
+                    </div>
+
+                </div>
+
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+    
+        

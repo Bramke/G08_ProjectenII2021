@@ -1,0 +1,69 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Login</title>
+        <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
+        <link rel="stylesheet" href="~/assets/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="~/assets/fonts/ionicons.min.css">
+        <link rel="stylesheet" href="~/assets/fonts/fontawesome5-overrides.min.css">
+        <link rel="stylesheet" href="~/assets/css/Animation-Cards-1.css">
+        <link rel="stylesheet" href="~/assets/css/Animation-Cards.css">
+        <link rel="stylesheet" href="~/assets/css/Features-Boxed.css">
+        <link rel="stylesheet" href="~/assets/css/Footer-Basic.css">
+        <link rel="stylesheet" href="~/assets/css/Footer-Clean.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+        <link rel="stylesheet" href="~/assets/css/List-item.css">
+        <link rel="stylesheet" href="~/assets/css/Login-Form-Clean.css">
+        <link rel="stylesheet" href="~/assets/css/Navigation-with-Button.css">
+        <link rel="stylesheet" href="~/assets/css/styles.css">
+    </head>
+<link rel="stylesheet" href="~/css/login.css" />
+
+<div class="container">
+    <div class="image"><img class="image" src="~/img/Actemiumlogo.png"/></div>
+        <section>
+            <form id="account" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input">Gebruikersnaam</label>
+                    <input asp-for="Input.Gebruikersnaam" class="form-control" />
+                    <span asp-validation-for="Input.Gebruikersnaam" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Password">Wachtwoord</label>
+                    <input asp-for="Input.Password" class="form-control" type="password" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe">
+                            <input asp-for="Input.RememberMe" type="checkbox" data-val="true" data-val-required="The 'Onthoud mij?' field is required." id="Input_RememberMe" name="Input.RememberMe" value="true">
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button id="logbutton" type="submit" class="btn btn-primary">Log in</button>
+                </div>
+                <div class="form-group">
+                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Register"  style="color:blue">Registreer</a>
+                </div>
+                </form>
+        </section>
+    </div>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

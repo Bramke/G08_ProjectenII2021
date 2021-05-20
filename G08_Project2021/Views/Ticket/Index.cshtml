@@ -1,0 +1,242 @@
+﻿@using G08_Project2021.Models.Domein
+@model IEnumerable<G08_Project2021.Models.Domein.Ticket>
+@{
+    ViewData["Title"] = "Tickets";
+}
+@section AdditionalCss{
+    <link rel="stylesheet" href="assets/css/Forum---Thread-listing-1.css">
+    <link rel="stylesheet" href="assets/css/Forum---Thread-listing.css">
+}
+<div class="container">
+    <ul class="nav nav-tabs" role="tablist" style="margin-top:5px;">
+        <li class="active" role="presentation"><a role="tab" data-toggle="tab" href="#tab-1" style:"margin-right: 2%">Alles&nbsp;<span class="badge">@((int)ViewData["Alle"])</span></a></li>
+        <li><a>&nbsp; &nbsp; <strong>Status:  </strong></a></li>
+        <li role="presentation"><a role="tab" data-toggle="tab" href="#tab-2" style="margin-left: 5px">Afgehandeld&nbsp;<span class="badge">@((int)ViewData["Ended"])</span></a></li>
+        <li><a>&nbsp; &nbsp; &nbsp; &nbsp;<strong>Type:  </strong></a></li>
+        <li role="presentation"><a role="tab" data-toggle="tab" href="#tab-3" style="margin-left: 5px">Normaal&nbsp;<span class="badge">@((int)ViewData["normaal"])</span></a></li>
+        <li role="presentation"><a role="tab" data-toggle="tab" href="#tab-4" style="margin-left: 5px">Belangrijk&nbsp;<span class="badge">@((int)ViewData["belangrijk"])</span></a></li>
+        <li role="presentation"><a role="tab" data-toggle="tab" href="#tab-5" style="margin-left: 5px">Niet Belangrijk&nbsp;<span class="badge">@((int)ViewData["nietBelangrijk"])</span></a></li>
+        <li>
+            <form asp-action="Index" method="get">
+                <div class="form-actions no-color">
+                    <p>
+                        &nbsp;Zoek op titel: <input type="text" name="Search" value="@ViewData["CurrentFilter"]" />
+                        <input type="submit" value="Search" class="btn btn-light action-button" style="background: #104b8f;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;font-size: 12px;" />
+                        <a asp-action="Index">Alles</a>
+                    </p>
+                </div>
+            </form>
+        </li>
+    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-center pull-left" style="margin-left: 54px;">Overzicht van uw tickets</h2><a class="btn btn-light action-button pull-right" asp-controller="Ticket" asp-action="Create" role="button" style="background: #104b8f;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;margin-left: 0;font-size: 17px;margin-top: 33px;margin-right: 54px;">Ticket aanmaken</a>
+            </div>
+        </div>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane active" role="tabpanel" id="tab-1">
+            <ul class="thread-list">
+                <section class="features-boxed" style="background: rgb(238, 244, 247);">
+                    <div class="container" style="font-style: normal;">
+                        <div class="intro"></div>
+                        <div class="row justify-content-center features">
+                            <!-- LIJSTITEMS tab #1-->
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                                    <div class="box" style="border-radius: 10px;">
+                                        <a class="btn btn-light action-button pull-right" asp-controller="Ticket" asp-action="Details" asp-route-id="@item.Id" role="button" style="background: #9bcd00;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;">Details</a>
+                                        <i class="fa fa-ticket icon" style="color: rgb(16,75,143);"></i>
+                                        <h3 class="name" style="color:#007bff">@item.Titel</h3>
+
+                                        <table>
+
+
+                                            <tr>
+                                                <td><strong>Status:</strong></td>
+                                                <td class="description">@item.Status</td>
+                                            </tr>
+                                            <tr>
+
+                                                <td><a class="btn btn-light action-button pull-right" role="button" asp-controller="Ticket" asp-action="Delete" asp-route-id="@item.Id" style="background: #007bff;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;margin-left: 0;margin-top: 33px;margin-right: 2px;">Delete</a></td>
+                                                <td><a class="btn btn-light action-button pull-right" role="button" asp-controller="Ticket" asp-action="Edit" asp-route-id="@item.Id" style="background: #007bff;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;margin-left: 0;margin-top: 33px;margin-right: 2px;">Wijzig</a></td>
+
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </section>
+            </ul>
+        </div>
+        <div class="tab-pane" role="tabpanel" id="tab-2">
+            <ul class="thread-list">
+                <section class="features-boxed" style="background: rgb(238, 244, 247);">
+                    <div class="container" style="font-style: normal;">
+                        <div class="intro"></div>
+                        <div class="row justify-content-center features">
+                            <!-- LIJSTITEMS tab #2-->
+                            @foreach (var item in Model)
+                            {
+                                @if (item.Status == Status.AFGEHANDELD)
+                                {
+                                    <div class="col-sm-6 col-md-5 col-lg-4 item">
+                                        <div class="box" style="border-radius: 10px;">
+                                            <a class="btn btn-light action-button pull-right" asp-controller="Ticket" asp-action="Details" asp-route-id="@item.Id" role="button" style="background: #9bcd00;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;">Details</a>
+                                            <i class="fa fa-ticket icon" style="color: rgb(16,75,143);"></i>
+                                            <h3 class="name" style="color:#007bff">@item.Titel</h3>
+
+                                            <table>
+
+
+                                                <tr>
+                                                    <td><strong>Status:</strong></td>
+                                                    <td class="description">@item.Status</td>
+                                                </tr>
+                                                <tr>
+
+                                                    <td><a class="btn btn-light action-button pull-right" role="button" asp-controller="Ticket" asp-action="Delete" asp-route-id="@item.Id" style="background: #007bff;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;margin-left: 0;margin-top: 33px;margin-right: 2px;">Delete</a></td>
+                                                    <td><a class="btn btn-light action-button pull-right" role="button" asp-controller="Ticket" asp-action="Edit" asp-route-id="@item.Id" style="background: #007bff;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;margin-left: 0;margin-top: 33px;margin-right: 2px;">Wijzig</a></td>
+
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </section>
+            </ul>
+        </div>
+        <div class="tab-pane" role="tabpanel" id="tab-3">
+            <ul class="thread-list">
+                <section class="features-boxed" style="background: rgb(238, 244, 247);">
+                    <div class="container" style="font-style: normal;">
+                        <div class="intro"></div>
+                        <div class="row justify-content-center features">
+                            <!-- LIJSTITEMS tab #3-->
+                            @foreach (var item in Model)
+                            {
+                                @if (item.Type == G08_Project2021.Models.Domein.Type.NORMAAL)
+                                {
+                                    <div class="col-sm-6 col-md-5 col-lg-4 item">
+                                        <div class="box" style="border-radius: 10px;">
+                                            <a class="btn btn-light action-button pull-right" asp-controller="Ticket" asp-action="Details" asp-route-id="@item.Id" role="button" style="background: #9bcd00;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;">Details</a>
+                                            <i class="fa fa-ticket icon" style="color: rgb(16,75,143);"></i>
+                                            <h3 class="name" style="color:#007bff">@item.Titel</h3>
+
+                                            <table>
+
+
+                                                <tr>
+                                                    <td><strong>Status:</strong></td>
+                                                    <td class="description">@item.Status</td>
+                                                </tr>
+                                                <tr>
+
+                                                    <td><a class="btn btn-light action-button pull-right" role="button" asp-controller="Ticket" asp-action="Delete" asp-route-id="@item.Id" style="background: #007bff;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;margin-left: 0;margin-top: 33px;margin-right: 2px;">Delete</a></td>
+                                                    <td><a class="btn btn-light action-button pull-right" role="button" asp-controller="Ticket" asp-action="Edit" asp-route-id="@item.Id" style="background: #007bff;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;margin-left: 0;margin-top: 33px;margin-right: 2px;">Wijzig</a></td>
+
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </section>
+            </ul>
+        </div>
+        <div class="tab-pane" role="tabpanel" id="tab-4">
+            <ul class="thread-list">
+                <section class="features-boxed" style="background: rgb(238, 244, 247);">
+                    <div class="container" style="font-style: normal;">
+                        <div class="intro"></div>
+                        <div class="row justify-content-center features">
+                            <!-- LIJSTITEMS tab #3-->
+                            @foreach (var item in Model)
+                            {
+                                @if (item.Type == G08_Project2021.Models.Domein.Type.BELANGRIJK)
+                                {
+                                    <div class="col-sm-6 col-md-5 col-lg-4 item">
+                                        <div class="box" style="border-radius: 10px;">
+                                            <a class="btn btn-light action-button pull-right" asp-controller="Ticket" asp-action="Details" asp-route-id="@item.Id" role="button" style="background: #9bcd00;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;">Details</a>
+                                            <i class="fa fa-ticket icon" style="color: rgb(16,75,143);"></i>
+                                            <h3 class="name" style="color:#007bff">@item.Titel</h3>
+
+                                            <table>
+
+
+                                                <tr>
+                                                    <td><strong>Status:</strong></td>
+                                                    <td class="description">@item.Status</td>
+                                                </tr>
+                                                <tr>
+
+                                                    <td><a class="btn btn-light action-button pull-right" role="button" asp-controller="Ticket" asp-action="Delete" asp-route-id="@item.Id" style="background: #007bff;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;margin-left: 0;margin-top: 33px;margin-right: 2px;">Delete</a></td>
+                                                    <td><a class="btn btn-light action-button pull-right" role="button" asp-controller="Ticket" asp-action="Edit" asp-route-id="@item.Id" style="background: #007bff;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;margin-left: 0;margin-top: 33px;margin-right: 2px;">Wijzig</a></td>
+
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </section>
+            </ul>
+        </div>
+        <div class="tab-pane" role="tabpanel" id="tab-5">
+            <ul class="thread-list">
+                <section class="features-boxed" style="background: rgb(238, 244, 247);">
+                    <div class="container" style="font-style: normal;">
+                        <div class="intro"></div>
+                        <div class="row justify-content-center features">
+                            <!-- LIJSTITEMS tab #3-->
+                            @foreach (var item in Model)
+                            {
+                                @if (item.Type == G08_Project2021.Models.Domein.Type.NIETBELANGRIJK)
+                                {
+                                    <div class="col-sm-6 col-md-5 col-lg-4 item">
+                                        <div class="box" style="border-radius: 10px;">
+                                            <a class="btn btn-light action-button pull-right" asp-controller="Ticket" asp-action="Details" asp-route-id="@item.Id" role="button" style="background: #9bcd00;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;">Details</a>
+                                            <i class="fa fa-ticket icon" style="color: rgb(16,75,143);"></i>
+                                            <h3 class="name" style="color:#007bff">@item.Titel</h3>
+
+                                            <table>
+
+
+                                                <tr>
+                                                    <td><strong>Status:</strong></td>
+                                                    <td class="description">@item.Status</td>
+                                                </tr>
+                                                <tr>
+
+                                                    <td><a class="btn btn-light action-button pull-right" role="button" asp-controller="Ticket" asp-action="Delete" asp-route-id="@item.Id" style="background: #007bff;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;margin-left: 0;margin-top: 33px;margin-right: 2px;">Delete</a></td>
+                                                    <td><a class="btn btn-light action-button pull-right" role="button" asp-controller="Ticket" asp-action="Edit" asp-route-id="@item.Id" style="background: #007bff;color: rgb(238, 244, 247);font-style: normal;font-weight: bold;margin-left: 0;margin-top: 33px;margin-right: 2px;">Wijzig</a></td>
+
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </section>
+            </ul>
+        </div>
+
+    </div>
+ </div>
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}

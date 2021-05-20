@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/Animation-Cards-1.css">
+    <link rel="stylesheet" href="assets/css/Animation-Cards.css">
+    <link rel="stylesheet" href="assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="assets/css/List-item.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<section class="features-boxed" style="background: rgb(238, 244, 247);">
+    
+    <div class="container" style="font-style: normal;">
+        <div class="row justify-content-center features">
+            <div class="col-sm-6 col-md-5 col-lg-4 item">
+                <a asp-area="" asp-controller="Contract" asp-action="Index">
+                    <div class="box" style="border-radius: 10px;">
+                        <i class="far fa-handshake icon" style="color: rgb(16,75,143);"></i>
+                        <h3 class="name">Contract</h3>
+                        <p class="description">Contracten aanmaken, wijzigen of verwijderen.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-6 col-md-5 col-lg-4 item">
+                <a asp-area="" asp-controller="Ticket" asp-action="Index">
+                    <div class="box" style="border-radius: 10px;">
+                        <i class="fa fa-ticket icon" style="color: rgb(16,75,143);"></i>
+                        <h3 class="name">Ticket</h3>
+                        <p class="description">Tickets aanmaken, wijzigen of verwijderen.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-4 item">
+                <a asp-area="" asp-controller="Statistiek" asp-action="Index">
+                    <div class="box" style="border-radius: 10px;">
+                        <i class="fa fa-line-chart icon" style="color: rgb(16,75,143);"></i>
+                        <h3 class="name">Extra opties</h3>
+                        <p class="description">Infopagina met met knowledgebase en statistieken van je contracten en tickets.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

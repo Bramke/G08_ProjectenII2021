@@ -1,0 +1,45 @@
+﻿@model G08_Project2021.Models.ViewModels.TicketViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="Titel"></label>
+        <input asp-for="Titel" class="form-control" />
+        <span asp-validation-for="Titel" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Omschrijving"></label>
+        <textarea asp-for="Omschrijving" class="form-control"></textarea>
+        <span asp-validation-for="Omschrijving" class="text-danger"></span>
+    </div>
+    @*<div class="form-group">
+        <label asp-for="Technieker"></label>
+        <select asp-for="Technieker" asp-items="@(ViewData["Techniekers"] as SelectList)"  class="form-control">
+        </select>
+        <span asp-validation-for="Technieker" class="text-danger"></span>
+    </div>*@
+    @*<div class="form-group">
+        <label asp-for="Status"></label>
+        <input asp-for="Status" class="form-control" readonly />
+      
+    </div>
+    <div class="form-group">
+        <label asp-for="Type"></label>
+        <input asp-for="Type" class="form-control" readonly />
+       
+    </div>
+    <div class="form-group">
+        <label asp-for="AanmaakDatum"></label>
+        <input asp-for="AanmaakDatum" class="form-control" readonly />
+       
+    </div>*@
+    <div>
+        <button class="btn btn-primary" type="submit">Opslaan</button>
+        <a asp-action="Index" class="btn btn-secondary">Annuleer</a>
+    </div>
+
+</form>
+
